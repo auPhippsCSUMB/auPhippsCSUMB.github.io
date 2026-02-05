@@ -1,0 +1,103 @@
+h1 {
+    background-color: black;
+    font-size: max(2vw, 7vw);
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+nav {
+    background-color: gold;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.navLink {
+    width: 10%;
+    height: fit-content;
+    font-size: 1.5vw;
+    padding: 0.5vw;
+    background-color: coral;
+    border: 1px solid;
+    margin: 0.5vw;
+    color:black;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    background-color: rgb(255, 158, 122);
+    scale: 105%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.teamFigures {
+    text-align: center;
+    width: 20%;
+}
+
+body {
+    background-color: blue;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.teamPics {
+    border-radius: 25px;
+    border: 2px magenta dotted;
+    width: 100%;
+    height: auto;
+}
+
+figcaption {
+    font-size: max(0.5vw, 2vw);
+}
+
+.welcome  {
+    font-size: max(0.5vw, 2vw);
+    text-align: center;
+    padding: 0 30%;
+}
+
+.quoteDiv {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: max(0.5vw, 1.5vw);
+    color: white;
+    background-color: navy;
+    padding: 2% 0;
+    margin: 0;
+}
+
+footer {
+    /* justify-content: center; */
+    text-align: center;
+    background-color: white;
+    margin: auto auto;
+    color: gray;
+    font-size: 1vw
+}
+
+.contact {
+    text-align: center;
+}
+
+.about {
+    text-align: center;
+    margin: 0 auto;
+    border: 1px black solid;
+}
+
+th {
+    background-color: yellow;
+}
+
+.hobbies {
+    width: 60vh;
+    margin: 0 auto;
+}
