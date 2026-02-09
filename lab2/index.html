@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
     <script src="./js/script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Guess the Number!</h1>
+        <br>
+        <h1>Guess a number between 1 and 99 in seven attempts!</h1>
     </header>
 
     Guess:
     <!-- creates a textbox -->
-    <input type="text" size="5">
+    <input type="text" size="5" id="userGuess">
     <br>
     <button id="guessBtn">Guess!</button>
+    <br>
+    <h2>Previous Guesses</h2>
+    <h3 id="userGuesses"></h3>
+    <br>
+    <h3 id="isWin"></h3>
+    <img src="https://media.tenor.com/ZyUfjXIgqswAAAAC/fire-hot.gif" id="fireGif"/>
 </body>
 </html>

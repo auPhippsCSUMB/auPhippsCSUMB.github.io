@@ -1,0 +1,199 @@
+:root {
+    --background: rgb(209, 243, 255);
+    --foreground: black;
+    --button: rgb(173, 216, 230);
+    --buttonHover: rgb(110, 196, 224);
+    --nav: rgba(173, 216, 230, .8);
+    --gradStart: white;
+}
+
+.dark {
+    --background: rgb(37, 23, 108);
+    --foreground: white;
+    --button: rgb(37, 23, 108);
+    --buttonHover: rgb(79, 65, 139);
+    --nav: rgba(79, 65, 139, .8);
+    --gradStart: black;
+}
+
+.lexend-norm {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+#spacer {
+    height: 10vh;
+}
+
+html {
+    position: relative;
+    font-family: 'Lexend', sans-serif;
+}
+
+p {
+    color: var(--foreground);
+    text-align: center;
+}
+
+#mainDesc {
+    width: 35%;
+    margin: auto;
+    font-size: large;
+}
+
+hr {
+    width: 33%;
+    color: var(--foreground);
+}
+
+h1 {
+    color: var(--foreground);
+    font-size: max(2vw, 3vw);
+    text-align: center;
+}
+
+h2 {
+    color: var(--foreground);
+    font-size: max(1.7vw, 2vw);
+    text-align: center;
+}
+
+h3 {
+    color: var(--foreground);
+    font-size: max(1.3vw, 1.5vw);
+    text-align: center;
+}
+
+nav {
+    justify-self: center;
+    background-color: var(--nav);
+    position: fixed;
+    top: 0;
+    width: 80vw;
+    margin-top: 1%;
+    font-size: 2vw;
+    padding: 1%;
+    display: flex;
+}
+
+.navLink {
+    color: var(--foreground);
+    margin: 0.5vw;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    background-color: var(--buttonHover);
+}
+
+.row {
+    color: var(--foreground);
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    margin: auto;
+    align-items: center;
+}
+
+.amigosFigures {
+    text-align: center;
+    width: 33%;
+}
+
+.amigos {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+}
+
+body {
+    background: linear-gradient(180deg, var(--gradStart) 0%, var(--background) 100%);
+}
+
+figcaption {
+    font-size: max(0.5vw, 2vw);
+}
+
+footer {
+    /* justify-content: center; */
+    text-align: center;
+    background-color: var(--button);
+    margin: auto auto;
+    color: gray;
+    font-size: 1vw
+}
+
+.column {
+    display: flexbox;
+    justify-content: center;
+}
+
+.versionFigure {
+    text-align: center;
+    width: 33%;
+}
+
+.versions {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+}
+
+.large {
+    font-size: large;
+    max-width: 40%;
+}
+
+table {
+    text-align: center;
+    border: 1px solid var(--foreground);
+}
+
+th {
+    border: 1px solid var(--foreground);
+}
+
+td {
+    border: 1px solid var(--foreground);
+}
+
+audio {
+    width: 100px;
+    height: 100px;
+    max-width: 100%;
+    max-height: auto;
+}
+
+#bgExample {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    max-height: auto;
+    background-color: darkred;
+}
+
+.circle {
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+    border-radius: 100%;
+}
+
+#fontExample {
+    font-size: max(1.7vw, 2vw);
+    text-align: right;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    justify-content: end;
+    width: 200px;
+}
+
+#darkMode {
+    width: 4%;
+    max-width: 100%;
+    height: 4%;
+    max-height: 100%;
+    margin-left: auto;
+    align-self: center;
+}

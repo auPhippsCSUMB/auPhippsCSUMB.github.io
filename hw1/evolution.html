@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div id="spacer"></div>
+    <h1 id="title">An HTML Website About HTML</h1>
+    <link rel="stylesheet" href="./style/style.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+    </style>
+    <script src="./scripts/script.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <a class="navLink" href="./index.html">Home</a> |
+        <a class="navLink" href="./evolution.html"><b>Evolution</b></a> |
+        <a class="navLink" href="./css.html">CSS</a> |
+        <a class="navLink" href="./java.html">JavaScript</a> |
+        <img src="./img/moonIcon.png" alt="darkMode" id="darkMode">
+    </nav>
+    <h2>A (Brief) History of HTML</h2>
+    <hr>
+    <br>
+    <div id="mainDesc">
+        <p>
+            HTML was developed in the late 1900s by Tim Berners-Lee as a solution to formatting webpages.
+            HTML was develoepd using a markup language format, which is typically used for quick
+            formatting of documents. When a tag (brackets for html, could be #'s or something else other places)
+            wraps of predicates a piece of text, the text gets formatted accordingly. HTML became the official web
+            standard in 2000, and since its creation, there have been many implementations.
+        </p>
+    </div>
+    <br>
+    <h3>Simple HTML Timeline</h3>
+    <hr>
+    <br>
+    <div class="column">
+        <div class="row">
+            <figure class="versionFigure">
+                <img class="versions" src="https://tse3.mm.bing.net/th/id/OIP.FQcPphtkIK7KZilS47bR5QAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="HTML" />
+                <figcaption>HTML 1.0</figcaption>
+            </figure>
+            <p class="large">
+                Important Updates: Basic tag structure, hyperlinks, image embedding. <br>
+                Example: <a href="#title">Scroll to Top!</a>
+            </p>
+        </div>
+        <div class="row">
+            <figure class="versionFigure">
+                <img class="versions" src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/18678570/image/medium-95e583e56ca00281d79d242c00841142.png" alt="HTML" />
+                <figcaption>HTML 2.0</figcaption>
+            </figure>
+            <p class="large">
+                Important Updates: Made forms and table standard. This update also
+                improved how HTML handles errors and the internet protocol standard. <br>
+                Example:
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Table</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <figure class="versionFigure">
+                <img class="versions" src="https://tse4.mm.bing.net/th/id/OIP.7YfW0Y65OycweeSGwxHHRwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="HTML" />
+                <figcaption>HTML 3.2</figcaption>
+            </figure>
+            <p class="large">
+                Important Updates: Improved support for scripts (Javascript, for example)
+                and app integration. This update also improved multimedia (audio, video, etc.) integration.
+            </p>
+        </div>
+        <div class="row">
+            <figure class="versionFigure">
+                <img class="versions" src="https://tse2.mm.bing.net/th/id/OIP.P4NVEJdL3f_ZRqpbSi2LvgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="HTML" />
+                <figcaption>HTML 4.01</figcaption>
+            </figure>
+            <p class="large">
+                Important Updates: This version of HTML made semantic markup a standard, making HTML easier to
+                read for developers. This largely meant adding the div and span tags to allow descriptions of sections.
+                This update also improved accessibility for users and improved CSS support.
+            </p>
+        </div>
+        <div class="row">
+            <figure class="versionFigure">
+                <img class="versions" src="https://latestlogo.com/wp-content/uploads/2023/12/html5.png" alt="HTML" />
+                <figcaption>HTML5</figcaption>
+            </figure>
+            <p class="large">
+                Important Updates: This version of HTML is current, and added native support for multimedia (audio, video, etc.).
+                This version also introduced new semantic tags (header, footer, section, etc.), offline storage,
+                and better API support. <br>
+                Example:
+            </p>
+            <audio controls>
+                <source src="./audio/rickRoll.mp3" type="audio/mpeg" >
+            </audio>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <p>
+        CST336 Internet Programming. 20XX Phipps, Renteria<br>
+        <b>Disclaimer: </b> The information in this webpage is ALL REAL.<br>
+        It is used for academic purposes only.
+    </p>
+    <img src="./img/csumb logo.jpg" alt="CSUMB Logo" width="100" height="50" />
+</footer>
+
+</html>
