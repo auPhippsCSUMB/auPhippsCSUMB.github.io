@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Limelight&display=swap');
+
+.limelight-regular {
+    font-family: "Limelight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inter-regular {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 2;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Limelight", sans-serif;
+}
+
+body {
+    position: relative;
+    background-size: cover;
+    background-image: url("../img/luigi.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    color: white;
+}
+
+#dice {
+    width: 20vw;
+    height: auto;
+}
+
+#roll {
+    width: fit-content;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: "Inter", sans-serif;
+    font-size: large;
+    margin: 0 auto;
+}
+
+#score {
+    width: fit-content;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: "Inter", sans-serif;
+    font-size: large;
+    margin: 0 auto;
+}
+
+#round {
+    position: absolute;
+    left: 2%;
+    top: 0;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: "Inter", sans-serif;
+    font-size: x-large;
+}
+
+#goal {
+    position: absolute;
+    right: 2%;
+    top: 0;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: "Inter", sans-serif;
+    font-size: x-large;
+}
+
+#timeout {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, .2); */
+    visibility: hidden;
+}
+
+#shop {
+    visibility: hidden;
+}
