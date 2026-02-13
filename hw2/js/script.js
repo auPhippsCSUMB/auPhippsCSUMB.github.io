@@ -9,8 +9,8 @@ let nextRound = document.getElementById("next_round");
 let shop = document.getElementById("shop");
 let numDice = document.getElementById("num_dice");
 let setNumber = document.getElementById("set_num");
-let setRound = 0;
-let diceNumber = 0;
+let setRound = 1;
+let diceNumber = 1;
 
 window.addEventListener('load', round);
 dice.addEventListener("click", roll);
@@ -23,12 +23,13 @@ function roll() {
 }
 
 function round() {
+    document.getElementById("roll").textContent = "Your Roll:";
     numDice.textContent = `Dice: ${diceNumber}`;
     timeout.style.visibility = 'hidden';
     document.getElementById("score").textContent = "";
     roundNum++;
 
-    if (roundNum %3 == 0) {
+    if (((roundNum % 3) == 1) && (roundNum != 1)) {
         newSet();
     }
 
@@ -61,6 +62,7 @@ function playRound() {
 }
 
 function newSet() {
+    setRound++;
     diceNumber++;
     setNumber.textContent = `Set Number: ${setRound}`;
 }
