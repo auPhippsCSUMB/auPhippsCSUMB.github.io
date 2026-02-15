@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+.lexend-norm {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+body {
+    background: linear-gradient(180deg, rgb(220, 50, 50) 0%, black 60%);
+    color: white;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Lexend", sans-serif;
+}
+
+header {
+    width: fit-content;
+    background-color: rgba(0, 22, 41, 0.5);
+    margin: auto;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.1vw;
+    padding-bottom: 0.1vw;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+header:hover {
+    scale: 105%;
+}
+
+#main {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(0, 22, 41, 0.5);
+    margin: auto;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.1vw;
+    padding-bottom: 0.1vw;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+}
+
+#main:hover {
+    scale: 105%;
+}
+
+button {
+    border-radius: 20px;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    color: aliceblue;
+    background-color: rgb(26, 0, 154);
+    border: white solid 2px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: rgb(90, 73, 176);
+    scale: 105%;
+}

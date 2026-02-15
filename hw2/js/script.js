@@ -9,21 +9,34 @@ let nextRound = document.getElementById("next_round");
 let shop = document.getElementById("shop");
 let numDice = document.getElementById("num_dice");
 let setNumber = document.getElementById("set_num");
+let attemptsText = document.getElementById("attempts_num");
+let bgMusic = new Audio("./img/marioMusic.mp3");
 let setRound = 1;
 let diceNumber = 1;
+let attempts = 5;
 
 window.addEventListener('load', round);
+window.addEventListener('load', playBgMusic);
 dice.addEventListener("click", roll);
 nextRound.addEventListener("click", playRound);
+nextRound.addEventListener("click", playBgMusic);
+
+function playBgMusic() {
+    bgMusic.play();
+}
 
 function roll() {
+    attempts--;
+    attemptsText.textContent = `Attempts Left: ${attempts}`;
     dice.src = "./img/dice_rolling.gif";
     timeout.style.visibility = 'visible';
     setTimeout(resetDice, 1500);
 }
 
 function round() {
+    attempts = 5;
     document.getElementById("roll").textContent = "Your Roll:";
+    attemptsText.textContent = `Attempts Left: ${attempts}`;
     numDice.textContent = `Dice: ${diceNumber}`;
     timeout.style.visibility = 'hidden';
     document.getElementById("score").textContent = "";
@@ -52,6 +65,8 @@ function resetDice() {
         document.getElementById("score").textContent = "You Win!";
         timeout.style.visibility = 'visible';
         setTimeout(round, 5000);
+    } else if (attempts <= 0) {
+
     }
 }
 
