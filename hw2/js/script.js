@@ -17,8 +17,7 @@ let restartButton = document.getElementById("restart");
 let scoreRound = document.getElementById("scoring");
 let score = 0;
 let dlCopy;
-
-//TODO: Select newly created dice by adding dice number to class and grabbing that element by the class name
+let controller;
 
 let diceList = [0, 0, 0, 0, 0];
 let numToImg = {
@@ -105,6 +104,7 @@ function resetDice() {
 
 function playRound() {
     shop.style.visibility = 'hidden';
+    scoreRound.style.visibility = "hidden";
     play.style.removeProperty('maxHeight');
     play.style.visibility = 'visible';
 }
@@ -165,15 +165,14 @@ function checkScore() {
         // console.log(numToImg[i]);
     }
 
-    for (let i = 1; i <= diceList.length; i++) {
-        document.getElementsByClassName("dice " + i.toString())[0].addEventListener("click", function() {
-            // console.log(parseInt(document.getElementsByClassName("dice " + i.toString())[0].alt));
-            pair(parseInt(document.getElementsByClassName("dice " + i.toString())[0].alt));
-        });
-    }
+    //This creates a one-time onClick listener that gets aborted every single roll to ensure that multiple
+    //click listeners are not added to the pics of the dice
+    controller = setupControllers();
 
 }
 
+// SECTION BELOW IS BASIC SCORING LOGIC
+//____________________________________________________
 function yahtzee() {
     let yahtzee = true;
     for (let i = 0; i < dlCopy.length - 1; i++) {
@@ -186,10 +185,14 @@ function yahtzee() {
         }
     }
     scoreText.textContent = `Score: ${score}`;
+
+    removeListeners();
+    playRound();
 }
 
 function pair(num) {
     // num = 1;
+    num = parseInt(document.getElementsByClassName("dice " + num.toString())[0].alt);
     for (let i = 0; i < dlCopy.length; i++) {
         console.log(dlCopy[i]);
         if (dlCopy[i] == num) {
@@ -198,5 +201,26 @@ function pair(num) {
         }
     }
     scoreText.textContent = `Score: ${score}`;
-    
+
+    removeListeners();
+    playRound();
+}
+//____________________________________________________
+
+function setupControllers() {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    for (let i = 1; i <= diceList.length; i++) {
+        document.getElementsByClassName("dice " + i.toString())[0].addEventListener("click", function () {
+            // console.log(parseInt(document.getElementsByClassName("dice " + i.toString())[0].alt));
+            pair(classToInt[document.getElementsByClassName("dice " + i.toString())[0].className]);
+        }, { signal });
+    }
+
+    return controller;
+}
+
+function removeListeners() {
+    controller.abort();
 }
