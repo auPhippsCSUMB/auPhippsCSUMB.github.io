@@ -14,8 +14,19 @@ let bgMusic = new Audio("./img/marioMusic.mp3");
 let beginButton = document.getElementById("beginButton");
 let loseScreen = document.getElementById("loser");
 let restartButton = document.getElementById("restart");
+let scoreRound = document.getElementById("scoring");
+
+//TODO: Select newly created dice by adding dice number to class and grabbing that element by the class name
 
 let diceList = [0, 0, 0, 0, 0];
+let numToImg = {
+    1: "./img/dice 1.png",
+    2: "./img/dice 2.png",
+    3: "./img/dice 3.png",
+    4: "./img/dice 4.png",
+    5: "./img/dice 5.png",
+    6: "./img/dice 6.png"
+};
 
 let setRound = 1;
 let diceNumber = 1;
@@ -57,7 +68,7 @@ function round() {
     }
 
     roundText.textContent = `Round Number: ${roundNum}`;
-    winNumber = Math.floor(Math.random() * 6 * diceNumber) + 1;
+    winNumber = Math.floor(Math.random() * 6 * 5) + 1;
     goalText.textContent = `Your Goal: ${winNumber}`;
     play.style.visibility = 'hidden';
     play.style.maxHeight = '0px';
@@ -65,17 +76,17 @@ function round() {
 }
 
 function resetDice() {
-    let randomNumber = Math.floor(Math.random() * 6 * diceNumber) + 1;
-    document.getElementById("roll").textContent = `Your Roll: ${randomNumber}`;
+    let total = 0;
+    for (let i in diceList) {
+        diceList[i] = Math.floor(Math.random() * 6 * diceNumber) + 1;
+        total += diceList[i];
+    }
+
+    checkScore();
+    document.getElementById("roll").textContent = `Your Roll: ${total}`;
     timeout.style.visibility = 'hidden';
     dice.src = "./img/dice.png";
-
-    if (randomNumber == winNumber) {
-        console.log(randomNumber + " " + winNumber);
-        document.getElementById("score").textContent = "You Win!";
-        timeout.style.visibility = 'visible';
-        setTimeout(round, 5000);
-    } else if (attempts <= 0) {
+    if (attempts <= 0) {
         lose();
     }
 }
@@ -119,4 +130,37 @@ function pauseMusic() {
             bgMusic.pause();
         }
     }, 200);
+}
+
+function checkScore() {
+    let dlCopy = diceList.slice();
+    let yahtzee = false;
+    let pair = false;
+    dlCopy.sort();
+
+    for (let i = 0; i < dlCopy.length - 1; i++) {
+        console.log(dlCopy[i]);
+        if (diceList[i] == dlCopy[i + 1]) {
+            yahtzee = true;
+            pair = true;
+        } else {
+            yahtzee = false;
+        }
+    }
+
+    console.log("Yahtzee: " + yahtzee);
+    console.log("Pair: " + pair);
+    console.log("__________________________________");
+
+    //______________________________________________
+
+    play.style.visibility = 'hidden';
+    play.style.maxHeight = '0px';
+    scoreRound.style.visibility = "visible";
+
+    for (let i = 1; i <= diceList.length; i++) {
+        console.log(i.toString());
+        document.getElementsByClassName("dice " + i.toString())[0].src = numToImg[diceList[i-1]];
+        console.log(numToImg[i]);
+    }
 }

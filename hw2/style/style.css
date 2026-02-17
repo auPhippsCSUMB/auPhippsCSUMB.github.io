@@ -139,3 +139,21 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+#scoring {
+    visibility: hidden;
+}
+
+#diceSection {
+    display: flexbox;
+    min-width: 25vw;
+    max-width: 75vw;
+    height: fit-content;
+    margin: auto;
+}
+
+.dice {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+}
