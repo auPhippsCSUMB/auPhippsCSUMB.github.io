@@ -7,7 +7,7 @@ let timeout = document.getElementById("timeout");
 let play = document.getElementById("play");
 let nextRound = document.getElementById("next_round");
 let shop = document.getElementById("shop");
-let numDice = document.getElementById("num_dice");
+let scoreText = document.getElementById("score_text");
 let setNumber = document.getElementById("set_num");
 let attemptsText = document.getElementById("attempts_num");
 let bgMusic = new Audio("./img/marioMusic.mp3");
@@ -15,6 +15,8 @@ let beginButton = document.getElementById("beginButton");
 let loseScreen = document.getElementById("loser");
 let restartButton = document.getElementById("restart");
 let scoreRound = document.getElementById("scoring");
+let score = 0;
+let dlCopy;
 
 //TODO: Select newly created dice by adding dice number to class and grabbing that element by the class name
 
@@ -26,6 +28,15 @@ let numToImg = {
     4: "./img/dice 4.png",
     5: "./img/dice 5.png",
     6: "./img/dice 6.png"
+};
+
+let classToInt = {
+    "dice 1": 1,
+    "dice 2": 2,
+    "dice 3": 3,
+    "dice 4": 4,
+    "dice 5": 5,
+    "dice 6": 6
 };
 
 let setRound = 1;
@@ -55,10 +66,11 @@ function roll() {
 }
 
 function round() {
+    score = 0;
     attempts = 5;
     document.getElementById("roll").textContent = "Your Roll:";
     attemptsText.textContent = `Attempts Left: ${attempts}`;
-    numDice.textContent = `Dice: ${diceNumber}`;
+    scoreText.textContent = `Score: ${score}`;
     timeout.style.visibility = 'hidden';
     document.getElementById("score").textContent = "";
     roundNum++;
@@ -133,24 +145,12 @@ function pauseMusic() {
 }
 
 function checkScore() {
-    let dlCopy = diceList.slice();
-    let yahtzee = false;
-    let pair = false;
+    dlCopy = diceList.slice();
     dlCopy.sort();
 
-    for (let i = 0; i < dlCopy.length - 1; i++) {
-        console.log(dlCopy[i]);
-        if (diceList[i] == dlCopy[i + 1]) {
-            yahtzee = true;
-            pair = true;
-        } else {
-            yahtzee = false;
-        }
-    }
-
-    console.log("Yahtzee: " + yahtzee);
-    console.log("Pair: " + pair);
-    console.log("__________________________________");
+    // console.log("Yahtzee: " + yahtzee);
+    // console.log("Pair: " + pair);
+    // console.log("__________________________________");
 
     //______________________________________________
 
@@ -159,8 +159,44 @@ function checkScore() {
     scoreRound.style.visibility = "visible";
 
     for (let i = 1; i <= diceList.length; i++) {
-        console.log(i.toString());
-        document.getElementsByClassName("dice " + i.toString())[0].src = numToImg[diceList[i-1]];
-        console.log(numToImg[i]);
+        // console.log(i.toString());
+        document.getElementsByClassName("dice " + i.toString())[0].src = numToImg[diceList[i - 1]];
+        document.getElementsByClassName("dice " + i.toString())[0].alt = diceList[i - 1].toString();
+        // console.log(numToImg[i]);
     }
+
+    for (let i = 1; i <= diceList.length; i++) {
+        document.getElementsByClassName("dice " + i.toString())[0].addEventListener("click", function() {
+            // console.log(parseInt(document.getElementsByClassName("dice " + i.toString())[0].alt));
+            pair(parseInt(document.getElementsByClassName("dice " + i.toString())[0].alt));
+        });
+    }
+
+}
+
+function yahtzee() {
+    let yahtzee = true;
+    for (let i = 0; i < dlCopy.length - 1; i++) {
+        // console.log(dlCopy[i]);
+        if (dlCopy[i] != dlCopy[i + 1]) {
+            yahtzee = false;
+            break;
+        } else {
+            score += (dlCopy[i] * 100);
+        }
+    }
+    scoreText.textContent = `Score: ${score}`;
+}
+
+function pair(num) {
+    // num = 1;
+    for (let i = 0; i < dlCopy.length; i++) {
+        console.log(dlCopy[i]);
+        if (dlCopy[i] == num) {
+            score += (dlCopy[i] * 100);
+            // console.log("found " + num);
+        }
+    }
+    scoreText.textContent = `Score: ${score}`;
+    
 }
