@@ -80,7 +80,8 @@ function round() {
 
     roundText.textContent = `Round Number: ${roundNum}`;
     winNumber = Math.floor(Math.random() * 6 * 5) + 1;
-    goalText.textContent = `Your Goal: ${winNumber}`;
+    goalText.textContent = `Your Goal: ${1000 * roundNum * setRound}`;
+    scoreRound.style.visibility = "hidden";
     play.style.visibility = 'hidden';
     play.style.maxHeight = '0px';
     shop.style.visibility = 'visible';
@@ -168,7 +169,6 @@ function checkScore() {
     //This creates a one-time onClick listener that gets aborted every single roll to ensure that multiple
     //click listeners are not added to the pics of the dice
     controller = setupControllers();
-
 }
 
 // SECTION BELOW IS BASIC SCORING LOGIC
@@ -187,7 +187,12 @@ function yahtzee() {
     scoreText.textContent = `Score: ${score}`;
 
     removeListeners();
-    playRound();
+   
+    if (score >= 1000 * roundNum * setRound) {
+        round();
+    } else {
+        playRound();
+    }
 }
 
 function pair(num) {
@@ -203,7 +208,12 @@ function pair(num) {
     scoreText.textContent = `Score: ${score}`;
 
     removeListeners();
-    playRound();
+
+    if (score >= 1000 * roundNum * setRound) {
+        round();
+    } else {
+        playRound();
+    }
 }
 //____________________________________________________
 
