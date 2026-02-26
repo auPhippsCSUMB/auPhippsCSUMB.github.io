@@ -104,12 +104,12 @@ body {
 
 #attempts_num {
     position: absolute;
-    left: 50%;
+    left: 75%;
     bottom: 0%;
     background-color: rgba(0, 0, 0, .4);
     font-family: "Inter", sans-serif;
     font-size: x-large;
-    transform: translate(-50%, -50%);
+    transform: translate(-25%, 0%);
 }
 
 #loser {
@@ -156,4 +156,14 @@ body {
     max-width: 100%;
     width: 150px;
     height: auto;
+}
+
+#money {
+    position: absolute;
+    left: 25%;
+    bottom: 0%;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: "Inter", sans-serif;
+    font-size: x-large;
+    transform: translate(25%, 0%);
 }

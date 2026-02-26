@@ -15,7 +15,10 @@ let beginButton = document.getElementById("beginButton");
 let loseScreen = document.getElementById("loser");
 let restartButton = document.getElementById("restart");
 let scoreRound = document.getElementById("scoring");
+let moneyText = document.getElementById("money");
 let score = 0;
+let totalMoney = 0;
+let earnedMoney;
 let dlCopy;
 let controller;
 
@@ -67,6 +70,8 @@ function roll() {
 function round() {
     score = 0;
     attempts = 5;
+    earnedMoney = attempts;
+    moneyText.textContent = `Cash: ${totalMoney}`;
     document.getElementById("roll").textContent = "Your Roll:";
     attemptsText.textContent = `Attempts Left: ${attempts}`;
     scoreText.textContent = `Score: ${score}`;
@@ -98,9 +103,6 @@ function resetDice() {
     document.getElementById("roll").textContent = `Your Roll: ${total}`;
     timeout.style.visibility = 'hidden';
     dice.src = "./img/dice.png";
-    if (attempts <= 0) {
-        lose();
-    }
 }
 
 function playRound() {
@@ -108,11 +110,13 @@ function playRound() {
     scoreRound.style.visibility = "hidden";
     play.style.removeProperty('maxHeight');
     play.style.visibility = 'visible';
+    if (attempts <= 0) {
+        lose();
+    }
 }
 
 function newSet() {
     setRound++;
-    diceNumber++;
     setNumber.textContent = `Set Number: ${setRound}`;
 }
 
@@ -148,6 +152,8 @@ function pauseMusic() {
 function checkScore() {
     dlCopy = diceList.slice();
     dlCopy.sort();
+    earnedMoney--;
+    console.log("Money: " + earnedMoney);
 
     // console.log("Yahtzee: " + yahtzee);
     // console.log("Pair: " + pair);
@@ -189,6 +195,7 @@ function yahtzee() {
     removeListeners();
    
     if (score >= 1000 * roundNum * setRound) {
+        totalMoney += earnedMoney;
         round();
     } else {
         playRound();
@@ -210,6 +217,8 @@ function pair(num) {
     removeListeners();
 
     if (score >= 1000 * roundNum * setRound) {
+        totalMoney += earnedMoney;
+        console.log("Total Money: " + totalMoney);
         round();
     } else {
         playRound();
