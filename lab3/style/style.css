@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+.lexend-norm {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+body {
+    position: relative;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(202, 244, 255) 60%);
+    color: black;
+    text-align: center;
+    height: 130vh;
+    width: 100vw;
+    font-family: "Lexend", sans-serif;
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    width: fit-content;
+    background-color: rgba(94, 250, 255, 0.5);
+    margin: 1.5vw auto;
+    padding-left: 1.7vw;
+    padding-right: 1.7vw;
+    padding-top: 0.2vw;
+    padding-bottom: 0.2vw;
+    border-radius: 50px;
+}
+
+.question {
+    width: fit-content;
+    background-color: rgba(109, 173, 175, 0.5);
+    margin: 1.5vw auto;
+    padding-left: 1.1vw;
+    padding-right: 1.1vw;
+    padding-top: 0.2vw;
+    padding-bottom: 0.2vw;
+    border-radius: 25px;
+}
+
+.userInput {
+    transition: all 0.2s ease;
+}
+
+.userInput:hover {
+    box-shadow: 5px 5px 10px;
+    scale: 105%;
+    font-size: 1.05rem;
+    padding: 0.2vw;
+    margin: 0.2vw;
+    border-radius: 25px;
+}
+
+#score {
+    position: absolute;
+    top: 1%;
+    right: 3%;
+    font-size: 1.5rem;
+}
+
+#youWin {
+    position: absolute;
+    top: 4%;
+    right: 3%;
+    font-size: 1.5rem;
+}
+
+.picDiv {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+}
+
+.picture {
+    width: 0px;
+    height: 0px;
+    border: none;
+    align-self: center;
+}
+
+#attempts {
+    position: absolute;
+    top: 1%;
+    left: 3%;
+    font-size: 1.5rem;
+}
